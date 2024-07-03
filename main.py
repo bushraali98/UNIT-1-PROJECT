@@ -3,6 +3,10 @@ from auth.register import register_user
 from timeline.timeline import display_timeline, create_post, like_post, dislike_post, comment_post
 
 def main():
+  """
+  The main function of the program that handles user registration, login, and various actions like posting,
+  liking, disliking, commenting, and logging out.
+  """
   print("Welcome to our Socila Media CLI Application")
 
   while True:
