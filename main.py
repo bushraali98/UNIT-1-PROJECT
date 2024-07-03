@@ -3,7 +3,7 @@ from auth.register import register_user
 from timeline.timeline import display_timeline, create_post, like_post, dislike_post, comment_post
 from art import *
 from colorama import Fore, Style
-from art import tprint, text2art
+from art import text2art
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
   liking, disliking, commenting, and logging out.
   """
 
-  print(Fore.BLUE + text2art("Welcome to Social Media CLI Application!") + Style.RESET_ALL)
+  print(Fore.BLUE + ("Welcome to Social Media CLI Application!") + Style.RESET_ALL)
 
 
   while True:
