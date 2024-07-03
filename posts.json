@@ -1,0 +1,68 @@
+[
+    {
+        "username": "boshra",
+        "content": "I love python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": [
+            {
+                "username": "boshra",
+                "content": "I love Python too!"
+            }
+        ]
+    },
+    {
+        "username": "abdallah",
+        "content": "hello #python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+    },
+    {
+        "username": "abdallah",
+        "content": "hello #python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+    },
+    {
+        "username": "abdallah",
+        "content": "hello #python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+    },
+    {
+        "username": "abdallah",
+        "content": "#python",
+        "likes": 0,
+        "dislikes": 1,
+        "comments": []
+    },
+    {
+        "username": "abdallah",
+        "content": "#python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+    },
+    {
+        "username": "abdallah",
+        "content": "hello #python",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+    },
+    {
+        "username": "user1",
+        "content": "programming is fun",
+        "likes": 1,
+        "dislikes": 0,
+        "comments": [
+            {
+                "username": "boshra",
+                "content": "I agree"
+            }
+        ]
+    }
+]
