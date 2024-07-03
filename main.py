@@ -1,13 +1,19 @@
 from auth.login import login_user
 from auth.register import register_user
 from timeline.timeline import display_timeline, create_post, like_post, dislike_post, comment_post
+from art import *
+from colorama import Fore, Style
+from art import tprint, text2art
+
 
 def main():
   """
   The main function of the program that handles user registration, login, and various actions like posting,
   liking, disliking, commenting, and logging out.
   """
-  print("Welcome to our Socila Media CLI Application")
+
+  print(Fore.BLUE + text2art("Welcome to Social Media CLI Application!") + Style.RESET_ALL)
+
 
   while True:
     has_account = input("Do you have an account? (yes/no): ").strip().lower()

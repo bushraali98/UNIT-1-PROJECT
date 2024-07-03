@@ -2,6 +2,9 @@ import json
 import os
 import re
 from collections import Counter
+from colorama import Fore, Style, init
+
+init()
 
 def display_timeline():
   """
@@ -11,14 +14,14 @@ def display_timeline():
   posts = load_posts()
 
   if not posts:
-    print("The timeline is empty")
+    print(Fore.YELLOW + "The timeline is empty." + Style.RESET_ALL)
   else: 
-    print("\nTimeline:")
+    print(Fore.CYAN + "\nTimeline:\n" + Style.RESET_ALL)
     for index, post in enumerate(posts, 1):
-      print(f"{index}. {post['username']}: {post['content']} [Likes: {post['likes']}, Dislikes: {post['dislikes']}]")
+      print(f"{Fore.GREEN}{index}. {post['username']}: {post['content']} [Likes: {post['likes']}, Dislikes: {post['dislikes']}]")
       for idx, comment in enumerate(post.get('comments', []), 1):
-        print(f"[Comments: {idx}. {comment['username']}: {comment['content']}]")
-    print("\nTrending Topics: ")
+        print(f"[Comments: {idx}. {Fore.BLUE}{comment['username']}: {comment['content']}]" + Style.RESET_ALL)
+    print(Fore.MAGENTA + "\nTrending Topics:\n" + Style.RESET_ALL)
     display_trending_topics(posts)
 
 def create_post(username:str):
@@ -33,7 +36,7 @@ def create_post(username:str):
   posts = load_posts()
   posts.append(new_post)
   save_posts(posts)
-  print("Post added!")
+  print(Fore.GREEN + "Post added!" + Style.RESET_ALL)
 
 def load_posts():
   """
@@ -72,9 +75,9 @@ def like_post(index:int):
   if 0 <= index < len(posts):
     posts[index]["likes"] +=1
     save_posts(posts)
-    print("Post liked!")
+    print(Fore.GREEN + "Post liked!" + Style.RESET_ALL)
   else:
-    print("Invalid post index.")
+    print(Fore.RED + "Invalid post index." + Style.RESET_ALL)
 
 
 def dislike_post(index:int):
@@ -88,9 +91,9 @@ def dislike_post(index:int):
   if  0 <= index < len(posts):
     posts[index]["dislikes"] += 1
     save_posts(posts)
-    print("Post disliked!")
+    print(Fore.GREEN + "Post disliked!" + Style.RESET_ALL)
   else:
-    print("Invalid post index.")
+    print(Fore.RED + "Invalid post index." + Style.RESET_ALL)
 
 def comment_post(index:int, username:str):
   """
@@ -106,9 +109,10 @@ def comment_post(index:int, username:str):
     new_comment = {"username": username, "content": comment_content}
     posts[index]["comments"].append(new_comment)
     save_posts(posts)
-    print("Commment added!")
+    print(Fore.GREEN + "Comment added!" + Style.RESET_ALL)
   else:
-    print("Invalid post index.")
+    print(Fore.RED + "Invalid post index." + Style.RESET_ALL)
+
 
 def get_topics(content:str):
   """
@@ -154,6 +158,6 @@ def display_trending_topics(posts:list):
   trending_topics = [topic for topic, count in topic_counter.items() if count >= 5]
   if trending_topics:
     for topic in trending_topics:
-      print(f"{topic}: {topic_counter[topic]} times")
+      print(Fore.YELLOW + f"{topic}: {topic_counter[topic]} times" + Style.RESET_ALL)
   else: 
-    print("No trending topics.")
+    print(Fore.RED + "No trending topics." + Style.RESET_ALL)

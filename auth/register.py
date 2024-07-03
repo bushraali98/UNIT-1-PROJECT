@@ -1,5 +1,6 @@
 import json 
 import os
+from colorama import Fore, Style
 
 def register_user():
   """
@@ -11,17 +12,17 @@ def register_user():
   password = input("Eneter a password (at least 8 characters): ").strip()
 
   if len(password) < 8:
-    print("Password must be at least 8 characters long. ")
+    print(Fore.RED + "Password must be at least 8 characters long. " + Style.RESET_ALL)
     return
   
   user_data = load_user_data()
   if username in user_data:
-    print("Username already taken. Please try again. ")
+    print(Fore.RED + "Username already taken. Please try again. " + Style.RESET_ALL)
     return
   
   user_data[username] = password
   save_user_data(user_data)
-  print("Registration successful!")
+  print(Fore.GREEN + "Account created! Please log in." + Style.RESET_ALL)
 
 def load_user_data():
   """

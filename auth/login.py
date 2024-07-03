@@ -1,5 +1,7 @@
 import json
 import os
+from colorama import Fore, Style
+
 
 def login_user():
   """
@@ -11,10 +13,10 @@ def login_user():
   user_data = load_user_data()
 
   if username in user_data and user_data[username] == password:
-    print("Login successful!")
+    print(Fore.GREEN + "Login successful!" + Style.RESET_ALL)
     return username
   else:
-    print("Invalid username or password. Please try again.")
+    print(Fore.RED + "Invalid username or password. Please try again." + Style.RESET_ALL)
     return None
   
 def load_user_data():
